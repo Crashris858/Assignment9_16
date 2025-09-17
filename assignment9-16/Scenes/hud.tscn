@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvqquyxf2o60j"]
+
+[ext_resource type="Texture2D" uid="uid://b8jw4bivbtgcs" path="res://Assets/textbox.png" id="1_e0onf"]
+[ext_resource type="Script" uid="uid://b58ashl86keot" path="res://Scenes/hud.gd" id="1_fccik"]
+[ext_resource type="Texture2D" uid="uid://cdhsop4hqjwaq" path="res://Assets/health.png" id="3_bjfho"]
+[ext_resource type="Texture2D" uid="uid://2s7llkh4jkhb" path="res://Assets/x.png" id="4_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://by7mj5dtp4nv1" path="res://Assets/clock.png" id="5_36asn"]
+[ext_resource type="Texture2D" uid="uid://d3d4rnb5acnlb" path="res://Assets/cowWave.png" id="6_36asn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fbih"]
+atlas = ExtResource("3_bjfho")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1xeu"]
+atlas = ExtResource("3_bjfho")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36asn"]
+atlas = ExtResource("3_bjfho")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jye8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fbih")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1xeu")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36asn")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer"]
+scale = Vector2(5, 5)
+transform = Transform2D(5, 0, 0, 5, 0, 0)
+follow_viewport_enabled = true
+script = ExtResource("1_fccik")
+
+[node name="Textbox" type="Sprite2D" parent="."]
+position = Vector2(24.4, 24.4)
+scale = Vector2(0.385938, 0.385938)
+texture = ExtResource("1_e0onf")
+
+[node name="text2" type="Label" parent="Textbox"]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -60.1133
+offset_top = -126.186
+offset_right = 30.8867
+offset_bottom = -51.1862
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 9
+text = "Well I'll be waveguided! Just get out safe now."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="text1" type="Label" parent="Textbox"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -60.4
+offset_top = -124.0
+offset_right = 30.6
+offset_bottom = -49.0
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 9
+text = "Get those WIFI Wranglers!!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PersonArea" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -2.0
+offset_top = -7.0
+offset_right = 48.0
+offset_bottom = 104.0
+color = Color(0.315374, 0.203625, 0.475001, 1)
+
+[node name="score" type="Label" parent="."]
+offset_left = 164.2
+offset_top = 2.2
+offset_right = 204.2
+offset_bottom = 25.2
+size_flags_horizontal = 4
+text = "0"
+
+[node name="healthbar" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(249.4, 13.8)
+sprite_frames = SubResource("SpriteFrames_8jye8")
+animation = &"3"
+
+[node name="enemiesKilled" type="Label" parent="."]
+offset_left = 90.6
+offset_top = 2.2
+offset_right = 130.6
+offset_bottom = 25.2
+text = "0"
+
+[node name="x" type="Sprite2D" parent="."]
+position = Vector2(118.4, 13.2)
+scale = Vector2(0.60378, 0.60378)
+texture = ExtResource("4_t1xeu")
+
+[node name="enemy counter" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="clock" type="Sprite2D" parent="."]
+position = Vector2(193.2, 14)
+texture = ExtResource("5_36asn")
+
+[node name="cowboy" type="Sprite2D" parent="."]
+position = Vector2(23, 73.6)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_36asn")
