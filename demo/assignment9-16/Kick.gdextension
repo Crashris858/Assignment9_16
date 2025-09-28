@@ -1,0 +1,9 @@
+[configuration]
+entry_symbol="kick_library_init"
+compatibility_minimum="4.1.0"
+
+[libraries]
+linux.debug.x86_64="../bin/libgdexample.so"
+linux.release.x86_64="../bin/libgdexample.so"
+windows.debug.x86_64="../bin/libgdexample.windows.template_debug.x86_64.dll"
+windows.release.x86_64="../bin/libgdexample.windows.template_debug.x86_64.dll"

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://l72kujwsj55s"]
+
+[ext_resource type="Texture2D" uid="uid://2s7llkh4jkhb" path="res://Assets/x.png" id="1_2v8f7"]
+[ext_resource type="Script" uid="uid://ft6jd264s63w" path="res://Scenes/kick.gd" id="2_cr3sr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr3sr"]
+size = Vector2(32, 32)
+
+[node name="Kick" type="Kick" groups=["kick"]]
+kickForce = 307
+texture = ExtResource("1_2v8f7")
+script = ExtResource("2_cr3sr")
+
+[node name="Area2D" type="Area2D" parent="." groups=["kick"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cr3sr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
