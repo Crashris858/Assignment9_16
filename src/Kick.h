@@ -52,8 +52,7 @@ public:
 	int get_damage() const; 
 	Vector2 get_velocity() const;
 	void set_velocity(Vector2 v);
-	// void set_position(Vector2 p);
-	// Vector2 get_position() const;
+
 
 	//other functoins
 	///kicked

@@ -20,8 +20,6 @@ void Kick ::_bind_methods()
     ClassDB::bind_method(D_METHOD("reverse_direction", "Velocity"), &Kick::reverse_direction);
     //bind process as virtual so scripts can override it
     BIND_VIRTUAL_METHOD(Kick, _process, 2139827523);
-    //on area entered 
-    // ClassDB ::bind_method(D_METHOD("on_hitbox_entered", "current"), &Kick::on_hitbox_entered);
     //kick function 
     ClassDB ::bind_method(D_METHOD("kicked", "direction", "kickForce"), &Kick::kicked);
     //getter setter 
@@ -83,7 +81,7 @@ void Kick :: kicked (Vector2 direction, int kickForce)
 //on area entered
 void Kick::on_hitbox_entered (Node* current)
 {
-
+    //may use later
 }
 
 //reverse direction velocity 
