@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfe4ed6kluttx"]
+
+[ext_resource type="Texture2D" uid="uid://ddh2lgqwhlttt" path="res://assets/Mall.jpg" id="1_5tgvr"]
+[ext_resource type="Script" uid="uid://bj5odtxcncj8o" path="res://scripts/Begining.cs" id="2_b0ks7"]
+
+[node name="Beginning" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.0
+offset_top = -387.0
+offset_right = 594.0
+offset_bottom = 522.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5tgvr")
+script = ExtResource("2_b0ks7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -221.0
+offset_right = 258.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.270588, 0.796078, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "There is a Mall..."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -124.0
+offset_right = 258.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.270588, 0.796078, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "Press Space to Enter"
+horizontal_alignment = 1

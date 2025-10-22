@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://ck72y262lm2h7"]
+
+[ext_resource type="Texture2D" uid="uid://bd0qfev5gn4we" path="res://assets/TextBubbles.png" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://lr7t7iiif13k" path="res://scripts/Hud.cs" id="1_oo0fn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo0fn"]
+atlas = ExtResource("1_ahhtf")
+region = Rect2(0, 0, 62, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ysmq"]
+atlas = ExtResource("1_ahhtf")
+region = Rect2(65, 0, 62, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahhtf"]
+atlas = ExtResource("1_ahhtf")
+region = Rect2(130, 0, 62, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oo0fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo0fn")
+}],
+"loop": true,
+"name": &"Platformer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ysmq")
+}],
+"loop": true,
+"name": &"TopDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahhtf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_oo0fn")
+
+[node name="Control" type="Control" parent="."]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(-84, 128)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_oo0fn")

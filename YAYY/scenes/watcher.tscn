@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckpbylohuvuh8"]
+
+[ext_resource type="Script" uid="uid://dmpfflxds7osl" path="res://scripts/Watcher.cs" id="1_3y8gi"]
+[ext_resource type="Texture2D" uid="uid://d02ykcfob5516" path="res://assets/WatcherThing.png" id="1_hbav8"]
+[ext_resource type="Texture2D" uid="uid://crrxhrcqrwwwy" path="res://assets/TextureWatcher.png" id="3_xrvts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y8gi"]
+atlas = ExtResource("1_hbav8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrvts"]
+atlas = ExtResource("1_hbav8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5rbt"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Gone",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3y8gi")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_xrvts")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3y8gi")
+}],
+"loop": true,
+"name": &"Searching",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbav8"]
+size = Vector2(12, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3y8gi"]
+radius = 9.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y5rbt"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1, 1, 1)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(-1, -1, 0)
+spread = 180.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+orbit_velocity_min = 1.517
+orbit_velocity_max = 2.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 91.95
+linear_accel_max = 91.95
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -26.44
+tangential_accel_max = 18.39
+
+[node name="Watcher" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_3y8gi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_y5rbt")
+animation = &"Searching"
+frame_progress = 0.0483285
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_hbav8")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+avoidance_layers = 3
+avoidance_mask = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_3y8gi")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -1
+texture_filter = 1
+amount = 4
+texture = ExtResource("3_xrvts")
+process_material = SubResource("ParticleProcessMaterial_y5rbt")

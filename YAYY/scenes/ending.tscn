@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy2ihfjrk2dal"]
+
+[ext_resource type="Texture2D" uid="uid://ddh2lgqwhlttt" path="res://assets/Mall.jpg" id="1_mqjok"]
+[ext_resource type="Script" uid="uid://bg7414mtiye0q" path="res://scripts/Ending.cs" id="2_fyrdv"]
+
+[node name="Ending" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -595.5
+offset_top = -461.5
+offset_right = 595.5
+offset_bottom = 461.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_mqjok")
+script = ExtResource("2_fyrdv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -221.0
+offset_right = 258.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.270588, 0.796078, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "You have Escape the Mall!!!"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -124.0
+offset_right = 258.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.270588, 0.796078, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "Press Space to Quit"
+horizontal_alignment = 1

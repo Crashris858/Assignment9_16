@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dighqwabal8qq"]
+
+[ext_resource type="Script" uid="uid://b2m4p4jbd1ri1" path="res://scripts/PickUp.cs" id="1_adew5"]
+[ext_resource type="Texture2D" uid="uid://ci8u0n7p4r1tx" path="res://assets/MidiBALL.png" id="1_c468w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adew5"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsqy0"]
+atlas = ExtResource("1_c468w")
+region = Rect2(0, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c87fy"]
+atlas = ExtResource("1_c468w")
+region = Rect2(16, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7jki"]
+atlas = ExtResource("1_c468w")
+region = Rect2(32, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tsvk"]
+atlas = ExtResource("1_c468w")
+region = Rect2(48, 0, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8cq65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsqy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c87fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7jki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tsvk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PickUp" type="Area2D"]
+script = ExtResource("1_adew5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_adew5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8cq65")
+frame_progress = 0.957228
+
+[node name="refresh" type="Timer" parent="."]
+wait_time = 5.0

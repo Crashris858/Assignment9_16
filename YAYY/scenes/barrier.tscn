@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://blai5ct3o10as"]
+
+[ext_resource type="Script" uid="uid://cgqakki4ooo62" path="res://scripts/Barrier.cs" id="1_8ilpk"]
+[ext_resource type="Texture2D" uid="uid://ddl60hddabk8w" path="res://assets/Particle.png" id="1_qfl2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ilpk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dlnxh"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+velocity_pivot = Vector3(1, 1, 1)
+direction = Vector3(1, 1, 1)
+spread = 180.0
+flatness = 0.05
+initial_velocity_min = 28.74
+initial_velocity_max = 28.74
+angular_velocity_min = -24.83
+angular_velocity_max = 74.48
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 0, 0)
+turbulence_noise_strength = 7.0
+
+[node name="Barrier" type="Sprite2D"]
+texture_filter = 1
+script = ExtResource("1_8ilpk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+unique_name_in_owner = true
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_8ilpk")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 80
+texture = ExtResource("1_qfl2k")
+lifetime = 0.4
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_dlnxh")
